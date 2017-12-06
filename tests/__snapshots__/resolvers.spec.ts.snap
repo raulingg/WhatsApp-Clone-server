@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Apollo Server should match the snapshot for the AddChat mutation 1`] = `
+Object {
+  "addChat": Object {
+    "id": "10",
+    "messages": Array [],
+    "name": "Mario Rossi",
+  },
+}
+`;
+
+exports[`Apollo Server should match the snapshot for the AddMessage mutation 1`] = `
+Object {
+  "addMessage": Object {
+    "content": "This is a test",
+    "id": "2",
+  },
+}
+`;
+
 exports[`Apollo Server should match the snapshot for the GetChat query 1`] = `
 Object {
   "chat": Object {
