@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apollo Server should match the snapshot for the GetChat query 1`] = `
+Object {
+  "chat": Object {
+    "id": "8",
+    "messages": Array [
+      Object {
+        "content": "I made a group",
+        "id": "1",
+      },
+      Object {
+        "content": "Ops, user 3 was not supposed to be here",
+        "id": "2",
+      },
+      Object {
+        "content": "Awesome!",
+        "id": "3",
+      },
+    ],
+    "name": "A user 0 group",
+  },
+}
+`;
+
+exports[`Apollo Server should match the snapshot for the GetChats query 1`] = `
+Object {
+  "chats": Array [
+    Object {
+      "id": "1",
+      "messages": Array [
+        Object {
+          "content": "You on your way?",
+          "id": "1",
+        },
+        Object {
+          "content": "Yep!",
+          "id": "2",
+        },
+      ],
+      "name": "Avery Stewart",
+    },
+    Object {
+      "id": "2",
+      "messages": Array [
+        Object {
+          "content": "Hey, it's me",
+          "id": "1",
+        },
+      ],
+      "name": "Katie Peterson",
+    },
+    Object {
+      "id": "3",
+      "messages": Array [
+        Object {
+          "content": "I should buy a boat",
+          "id": "1",
+        },
+        Object {
+          "content": "You still there?",
+          "id": "2",
+        },
+      ],
+      "name": "Ray Edwards",
+    },
+    Object {
+      "id": "6",
+      "messages": Array [],
+      "name": "Niccolò Belli",
+    },
+    Object {
+      "id": "8",
+      "messages": Array [
+        Object {
+          "content": "I made a group",
+          "id": "1",
+        },
+        Object {
+          "content": "Ops, user 3 was not supposed to be here",
+          "id": "2",
+        },
+        Object {
+          "content": "Awesome!",
+          "id": "3",
+        },
+      ],
+      "name": "A user 0 group",
+    },
+  ],
+}
+`;
+
+exports[`Apollo Server should match the snapshot for the GetMe query 1`] = `
+Object {
+  "me": Object {
+    "id": "1",
+    "name": "Ethan Gonzalez",
+    "picture": "https://randomuser.me/api/portraits/thumb/men/1.jpg",
+  },
+}
+`;
+
+exports[`Apollo Server should match the snapshot for the GetUsers query 1`] = `
+Object {
+  "users": Array [
+    Object {
+      "id": "2",
+      "name": "Bryan Wallace",
+      "picture": "https://randomuser.me/api/portraits/thumb/men/2.jpg",
+    },
+    Object {
+      "id": "3",
+      "name": "Avery Stewart",
+      "picture": "https://randomuser.me/api/portraits/thumb/women/1.jpg",
+    },
+    Object {
+      "id": "4",
+      "name": "Katie Peterson",
+      "picture": "https://randomuser.me/api/portraits/thumb/women/2.jpg",
+    },
+    Object {
+      "id": "5",
+      "name": "Ray Edwards",
+      "picture": "https://randomuser.me/api/portraits/thumb/men/3.jpg",
+    },
+    Object {
+      "id": "6",
+      "name": "Niccolò Belli",
+      "picture": "https://randomuser.me/api/portraits/thumb/men/4.jpg",
+    },
+    Object {
+      "id": "7",
+      "name": "Mario Rossi",
+      "picture": "https://randomuser.me/api/portraits/thumb/men/5.jpg",
+    },
+  ],
+}
+`;
