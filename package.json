@@ -1,5 +1,8 @@
 {
   "name": "whatsapp-clone-server",
   "description": "A newly created Tortilla project",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  }
 }
