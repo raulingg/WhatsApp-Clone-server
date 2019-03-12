@@ -2,6 +2,7 @@ import { createTestClient } from "apollo-server-testing";
 import { ApolloServer, gql } from "apollo-server";
 import typeDefs from "../schema/typeDefs";
 import { resolvers } from "../schema/resolvers";
+import { db } from "../db";
 
 describe('Apollo Server', () => {
   let server: ApolloServer;
@@ -10,6 +11,7 @@ describe('Apollo Server', () => {
     server = new ApolloServer({
       typeDefs: gql(typeDefs),
       resolvers: resolvers as any,
+      context: () => ({ currentUser: db.users[0] }),
     });
   });
 
