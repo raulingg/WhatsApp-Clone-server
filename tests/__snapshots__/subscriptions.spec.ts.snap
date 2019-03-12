@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Apollo Server should match the snapshot for the GetChats query 1`] = `
+Object {
+  "messageAdded": Object {
+    "__typename": "Message",
+    "chat": Object {
+      "__typename": "Chat",
+      "id": "7",
+    },
+    "content": "This is a test",
+    "id": "1",
+  },
+}
+`;
