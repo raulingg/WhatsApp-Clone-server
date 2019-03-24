@@ -25,6 +25,27 @@ const resolvers = {
       return chats.find(c => c.id === chatId)
     },
   },
+
+  Mutation: {
+    addMessage(root: any, { chatId, content }: any) {
+      const chat = chats.find(c => c.id === chatId)
+
+      if (!chat) return null
+
+      const lastMessageId = chat.messages[chat.messages.length - 1]
+      const messageId = String(Number(lastMessageId) + 1)
+      const message = {
+        id: messageId,
+        createdAt: new Date(),
+        content,
+      }
+
+      messages.push(message)
+      chat.messages.push(messageId)
+
+      return message
+    }
+  }
 }
 
 export default resolvers
