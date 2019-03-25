@@ -55,7 +55,7 @@
     "passport-http": "^0.3.0",
     "pg": "^7.8.1",
     "reflect-metadata": "^0.1.13",
-    "tmp": "^0.0.33",
+    "tmp": "^0.1.0",
     "typeorm": "^0.2.14"
   }
 }
