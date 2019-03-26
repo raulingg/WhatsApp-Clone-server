@@ -28,7 +28,7 @@ const resolvers: Resolvers = {
   },
 
   Mutation: {
-    addMessage(root, { chatId, content }) {
+    addMessage(root, { chatId, content }, { pubsub }) {
       const chat = chats.find(c => c.id === chatId)
 
       if (!chat) return null
@@ -43,6 +43,10 @@ const resolvers: Resolvers = {
 
       messages.push(message)
       chat.messages.push(messageId)
+
+      pubsub.publish('messageAdded', {
+        messageAdded: message,
+      })
 
       return message
     }
