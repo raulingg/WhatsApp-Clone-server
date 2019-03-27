@@ -1,0 +1,68 @@
+import { GraphQLDateTime } from 'graphql-iso-date'
+import { Chat, Message, chats, messages } from '../db'
+import { Resolvers } from '../types/graphql'
+
+const resolvers: Resolvers = {
+  Date: GraphQLDateTime,
+
+  Message: {
+    chat(message) {
+      return chats.find(c => c.messages.some(m => m === message.id)) || null
+    },
+  },
+
+  Chat: {
+    messages(chat) {
+      return messages.filter(m => chat.messages.includes(m.id))
+    },
+
+    lastMessage(chat) {
+      const lastMessage = chat.messages[chat.messages.length - 1]
+
+      return messages.find(m => m.id === lastMessage) || null
+    },
+  },
+
+  Query: {
+    chats() {
+      return chats
+    },
+
+    chat(root, { chatId }) {
+      return chats.find(c => c.id === chatId) || null
+    },
+  },
+
+  Mutation: {
+    addMessage(root, { chatId, content }, { pubsub }) {
+      const chat = chats.find(c => c.id === chatId)
+
+      if (!chat) return null
+
+      const recentMessage = messages[messages.length - 1]
+      const messageId = String(Number(recentMessage.id) + 1)
+      const message: Message = {
+        id: messageId,
+        createdAt: new Date(),
+        content,
+      }
+
+      messages.push(message)
+      chat.messages.push(messageId)
+
+      pubsub.publish('messageAdded', {
+        messageAdded: message,
+      })
+
+      return message
+    }
+  },
+
+  Subscription: {
+    messageAdded: {
+      subscribe: (root, args, { pubsub }) => pubsub.asyncIterator('messageAdded')
+    }
+  }
+}
+
+export default resolvers
